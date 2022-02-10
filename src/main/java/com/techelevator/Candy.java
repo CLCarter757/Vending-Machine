@@ -1,28 +1,14 @@
 package com.techelevator;
 
-public class Candy {
-    private String name;
-    private double price;
+import java.io.PrintWriter;
 
-    //constructor
+public class Candy extends Product {
+
     public Candy(String name, double price){
-        this.name = name;
-        this.price = price;
-    }
-    //getters
-    public String getName() {
-        return name;
+        super(name, price);
     }
 
-    public double getPrice() {
-        return price;
-    }
-    //setters
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
+    public String getSound() {
+        return "Munch Munch, Yum!";
     }
 }

@@ -1,29 +1,12 @@
 package com.techelevator;
 
-public class Gum {
+public class Gum extends Product {
 
-    private String name;
-    private double price;
-
-//constructor
     public Gum(String name, double price){
-        this.name = name;
-        this.price = price;
-    }
-//getters
-    public String getName() {
-        return name;
+        super(name, price);
     }
 
-    public double getPrice() {
-        return price;
-    }
-//setters
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
+    public String getSound() {
+        return "Chew Chew, Yum!";
     }
 }
