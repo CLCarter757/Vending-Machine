@@ -1,12 +1,13 @@
 package com.techelevator;
 
-public class Beverages extends Product {
+public class Beverage extends Product {
 
     //constructor
-    public Beverages(String name, double price){
+    public Beverage(String name, double price){
         super(name, price);
     }
 
+    @Override
     public String getSound() {
         return "Glug Glug, Yum!";
     }
