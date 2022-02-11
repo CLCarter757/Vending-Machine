@@ -8,13 +8,13 @@ import java.util.Map;
 public class Application {
 
 	public static void main(String[] args) {
-		Inventory inventory = new Inventory();
+		/*Inventory inventory = new Inventory();
 		Map<String, List<Product>> test = inventory.createInventory();
 		for(Map.Entry<String, List<Product>> entry : test.entrySet()) {
 			System.out.println(entry.getKey() + " " + entry.getValue().toString());
 
 
-		}
+		}*/
 
 	}
 }
