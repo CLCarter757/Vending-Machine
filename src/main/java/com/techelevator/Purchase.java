@@ -55,8 +55,14 @@ public class Purchase {
         int nickles = changeOwed / 5;
         changeOwed -= (nickles * 5);
 
-        System.out.println("Change: " + quarters + " Quarters, " + dimes + " dimes, & " + nickles + "nickles.");
-
+        System.out.println("Change: ");
+        if (quarters > 0) {
+            System.out.println("Quarters: " + quarters);
+        } if (dimes > 0) {
+            System.out.println("Dimes: " + dimes);
+        } if(nickles > 0) {
+            System.out.println("Nickles: " + nickles);
+        }
         write.writeLog("GIVE CHANGE: ", startBalance, changeOwed);
     }
 
