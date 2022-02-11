@@ -1,11 +1,12 @@
 package com.techelevator;
 
-public class Chips extends Product {
+public class Chip extends Product {
 
-    public Chips(String name, double price){
+    public Chip(String name, double price){
         super(name, price);
     }
 
+    @Override
     public String getSound() {
         return "Crunch Crunch, Yum!";
     }
