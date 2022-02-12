@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class UI {
 
     Scanner userInput = new Scanner(System.in);
-    private Map<String, Inventory> vendingProduct = new HashMap<>();
+    //private Map<String, Inventory> vendingProduct = new HashMap<>();
 
     Inventory inventory = new Inventory();
     Purchase purchase = new Purchase();
@@ -77,7 +77,6 @@ public class UI {
         System.out.println("(1) Display vending machine items");
         System.out.println("(2) Purchase");
         System.out.println("(3) Exit");
-
     }
     public void purchaseMenuOptions(){
         System.out.println("(1) Feed Money");
