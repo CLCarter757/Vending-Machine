@@ -39,10 +39,10 @@ public class Purchase {
 
     public void feedMoney() {
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Please enter the whole dollar amount you would like to deposit: ");
-        int depositAmount = Integer.parseInt(userInput.nextLine());
-        currentMoneyProvided += depositAmount;
-        write.writeLog("FEED MONEY: ", depositAmount, currentMoneyProvided);
+            System.out.println("Please enter the whole dollar amount you would like to deposit: ");
+            int depositAmount = Integer.parseInt(userInput.nextLine());
+            currentMoneyProvided += depositAmount;
+            write.writeLog("FEED MONEY: ", depositAmount, currentMoneyProvided);
     }
 
     public void giveChange() {

@@ -67,7 +67,7 @@ public class Inventory {
             System.out.println(slotIdentifier + "| " + value + entry.getValue().size());
         }
     }
-}
+
 
     public void removeItem() {
         inventoryLevels.get("A1").remove(0);
