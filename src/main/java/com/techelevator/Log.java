@@ -2,22 +2,28 @@ package com.techelevator;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Log {
-    LocalDate date = LocalDate.now();
-    LocalTime time = LocalTime.now();
+    LocalDateTime dateTime = LocalDateTime.now();
+    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss a");
 
     public void writeLog(String transaction, double startBalance, double endBalance) {
 
-        try(PrintWriter logWriter = new PrintWriter(new FileOutputStream("log.txt"), true)) {
+        try(FileOutputStream outputStream = new FileOutputStream(("log.txt"), true);
+            PrintWriter logWriter = new PrintWriter(outputStream)) {
 
-            logWriter.println(date + " " + time + " " + transaction + " " + startBalance + " " + endBalance);
+            logWriter.println(format.format(dateTime) + " " + transaction + " " + startBalance + " " + endBalance);
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found.");;
+        } catch (IOException e) {
+            System.out.println("Womp Womp!");;
         }
     }
 

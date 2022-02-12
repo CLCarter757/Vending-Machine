@@ -64,6 +64,8 @@ public class Purchase {
             System.out.println("Nickles: " + nickles);
         }
         write.writeLog("GIVE CHANGE: ", startBalance, changeOwed);
+
+        currentMoneyProvided = 0;
     }
 
 //    public void purchase(String slotIdentifier) {
