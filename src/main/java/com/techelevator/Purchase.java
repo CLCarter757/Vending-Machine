@@ -1,9 +1,6 @@
 package com.techelevator;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Purchase {
     private int currentMoneyProvided;
@@ -40,7 +37,10 @@ public class Purchase {
         return currentMoneyProvided;
     }
 
-    public void feedMoney(int depositAmount) {
+    public void feedMoney() {
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Please enter the whole dollar amount you would like to deposit: ");
+        int depositAmount = Integer.parseInt(userInput.nextLine());
         currentMoneyProvided += depositAmount;
         write.writeLog("FEED MONEY: ", depositAmount, currentMoneyProvided);
     }
