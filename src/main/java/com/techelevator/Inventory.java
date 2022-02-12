@@ -25,16 +25,18 @@ public class Inventory {
                         Chip chip = new Chip(inventoryArray[1], price);
                         productInfo.add(chip);
 
-                    } inventoryLevels.put(inventoryArray[0], productInfo);
+                    }
+                    inventoryLevels.put(inventoryArray[0], productInfo);
                 }
                 if (inventoryArray[0].startsWith("B")) {
                     List<Product> productInfo = new ArrayList<>();
                     for (int i = 0; i < 5; i++) {
                         double cost = Double.parseDouble(inventoryArray[2]);
-                        double price = Math.round(cost * 100.00)/100.00;
+                        double price = Math.round(cost * 100.00) / 100.00;
                         Candy candy = new Candy(inventoryArray[1], price);
                         productInfo.add(candy);
-                    } inventoryLevels.put(inventoryArray[0], productInfo);
+                    }
+                    inventoryLevels.put(inventoryArray[0], productInfo);
                 }
                 if (inventoryArray[0].startsWith("C")) {
                     List<Product> productInfo = new ArrayList<>();
@@ -42,7 +44,8 @@ public class Inventory {
                         double price = Double.parseDouble(inventoryArray[2]);
                         Beverage beverage = new Beverage(inventoryArray[1], price);
                         productInfo.add(beverage);
-                    } inventoryLevels.put(inventoryArray[0], productInfo);
+                    }
+                    inventoryLevels.put(inventoryArray[0], productInfo);
                 }
                 if (inventoryArray[0].startsWith("D")) {
                     List<Product> productInfo = new ArrayList<>();
@@ -50,7 +53,8 @@ public class Inventory {
                         double price = Double.parseDouble(inventoryArray[2]);
                         Gum gum = new Gum(inventoryArray[1], price);
                         productInfo.add(gum);
-                    } inventoryLevels.put(inventoryArray[0], productInfo);
+                    }
+                    inventoryLevels.put(inventoryArray[0], productInfo);
                 }
             }
         } catch (FileNotFoundException e) {
@@ -64,7 +68,24 @@ public class Inventory {
         for (Map.Entry<String, List<Product>> entry : inventoryLevels.entrySet()) {
             String slotIdentifier = entry.getKey();
             String value = entry.getValue().subList(0, 1).toString().replace("[", "").replace("]", "");
-            System.out.println(slotIdentifier + "| " + value + entry.getValue().size());
+            System.out.println(slotIdentifier + " | " + value + entry.getValue().size());
+        }
+    }
+
+    public void purchase(String slotIdentifier) {
+        if(!inventoryLevels.containsKey(slotIdentifier)) { //if choice null
+            System.out.println("Product choice not an option. Please choose again.");
+        } if(inventoryLevels.containsKey(slotIdentifier)) {
+            if(inventoryLevels.get(slotIdentifier).size() == 0) { //check if in stock
+                System.out.println("Item out of stock. Sorry :(");
+            } if(inventoryLevels.get(slotIdentifier).size() > 0) {
+//                if (currentMoneyProvided >= inventory.get(slotIdentifier).get(1)) { //check given enough money
+//                    currentMoneyProvided -= inventory.get(slotIdentifier).get(1); //update balance
+//                    inventory.get(slotIdentifier).get(2); //update inventory
+                System.out.println("Test");
+            } else {
+                System.out.println("Insufficient funds.");
+            }
         }
     }
 
@@ -72,7 +93,8 @@ public class Inventory {
     public void removeItem() {
         inventoryLevels.get("A1").remove(0);
     }
-
-
-
 }
+
+
+
+
