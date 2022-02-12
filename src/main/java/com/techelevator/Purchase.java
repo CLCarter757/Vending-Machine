@@ -6,7 +6,7 @@ public class Purchase {
     private int currentMoneyProvided;
     Log write = new Log();
     private int endBalance = 0;
-    Map<String, List<Inventory>> inventory = new HashMap<>();
+    Map<String, List<Product>> inventoryLevels = new LinkedHashMap<>();
 
 
 
@@ -66,21 +66,22 @@ public class Purchase {
         write.writeLog("GIVE CHANGE: ", startBalance, changeOwed);
     }
 
-    public void purchase(String slotIdentifier) {
-        if(!inventory.containsKey(slotIdentifier)) { //if choice null
-            System.out.println("Product choice not an option. Please choose again.");
-        } if(inventory.containsKey(slotIdentifier)) {
-            if(inventory.get(slotIdentifier).size() == 0) { //check if in stock
-                System.out.println("Item out of stock. Sorry :(");
-            } if(inventory.get(slotIdentifier).size() > 0) {
-//                if (currentMoneyProvided >= inventory.get(slotIdentifier).get(1)) { //check given enough money
-//                    currentMoneyProvided -= inventory.get(slotIdentifier).get(1); //update balance
-//                    inventory.get(slotIdentifier).get(2); //update inventory
-                } else {
-                    System.out.println("Insufficient funds.");
-                }
-            }
-        }
+//    public void purchase(String slotIdentifier) {
+//        if(!inventoryLevels.containsKey(slotIdentifier)) { //if choice null
+//            System.out.println("Product choice not an option. Please choose again.");
+//        } if(inventoryLevels.containsKey(slotIdentifier)) {
+//            if(inventoryLevels.get(slotIdentifier).size() == 0) { //check if in stock
+//                System.out.println("Item out of stock. Sorry :(");
+//            } if(inventoryLevels.get(slotIdentifier).size() > 0) {
+////                if (currentMoneyProvided >= inventory.get(slotIdentifier).get(1)) { //check given enough money
+////                    currentMoneyProvided -= inventory.get(slotIdentifier).get(1); //update balance
+////                    inventory.get(slotIdentifier).get(2); //update inventory
+//                System.out.println("Test");
+//                } else {
+//                    System.out.println("Insufficient funds.");
+//                }
+//            }
+//        }
     }
 
 

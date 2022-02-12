@@ -59,7 +59,7 @@ public class UI {
                 inventory.displayInventory();
                 System.out.print("Enter the code of the item: ");
                 String itemCode = userInput.nextLine();
-                purchase.purchase(itemCode);
+                inventory.purchase(itemCode);
             }
 
             System.out.print("\n");
