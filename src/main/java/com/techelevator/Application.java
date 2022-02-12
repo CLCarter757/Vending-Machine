@@ -8,7 +8,7 @@ import java.util.Map;
 public class Application {
 
 	public static void main(String[] args) {
-		Inventory inventory = new Inventory();
+		/*Inventory inventory = new Inventory();
 
 		inventory.createInventory();
 		inventory.displayInventory();
@@ -17,7 +17,11 @@ public class Application {
 
 		inventory.removeItem();
 		inventory.displayInventory();
+		*/
 
+		UI ui = new UI();
+		ui.mainMenu();
+		//Need to figure out where to put the log(theft)
 
 	}
 }
