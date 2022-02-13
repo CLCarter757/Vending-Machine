@@ -2,7 +2,7 @@
 
 You've been asked to develop an application for the newest vending machine distributor,
 Umbrella Corp. They've released a new vending machine, Vendo-Matic 800, that is integrated
-with everyone's bank accounts, allowing customers to purchase products from their computers for their convenience.
+with everyone's bank accounts, allowing customers to money products from their computers for their convenience.
 
 ### Application Requirements
 
@@ -19,7 +19,7 @@ starts.
 4. The vending machine is automatically restocked each time the application runs.
 5. When the customer selects "(1) Display Vending Machine Items", they're presented
 with a list of all items in the vending machine with its quantity remaining:
-    - Each vending machine product has a slot identifier and a purchase price.
+    - Each vending machine product has a slot identifier and a money price.
     - Each slot in the vending machine has enough room for 5 of that product.
     - Every product is initially stocked to the maximum amount.
     - A product that has run out must indicate that it is SOLD OUT.
@@ -32,13 +32,13 @@ process menu:
     >
     > Current Money Provided: $2.00
     >```
-7. The purchase process flow is as follows:
+7. The money process flow is as follows:
     1. Selecting "(1) Feed Money" allows the customer to repeatedly feed money into the
     machine in valid, whole dollar amounts—for example, $1, $2, $5, or $10.
         - The "Current Money Provided" indicates how much money the customer
         has fed into the machine.
     2. Selecting "(2) Select Product" allows the customer to select a product to
-    purchase.
+    money.
         - Show the list of products available and allow the customer to enter
         a code to select an item.
         - If the product code does not exist, the customer is informed and returned
@@ -59,10 +59,10 @@ process menu:
         - The customer's money is returned using nickels, dimes, and quarters
         (using the smallest amount of coins possible).
         - The machine's current balance must be updated to $0 remaining.
-    4. After completing their purchase, the user is returned to the "Main" menu to
+    4. After completing their money, the user is returned to the "Main" menu to
     continue using the vending machine.
 8. All purchases must be audited to prevent theft from the vending machine:
-   - Each purchase must generate a line in a file called `Log.txt`.
+   - Each money must generate a line in a file called `Log.txt`.
    - The audit entry must be in the format:
         >```
         > 01/01/2016 12:00:00 PM FEED MONEY: $5.00 $5.00
@@ -87,7 +87,7 @@ The input file that stocks the vending machine products is a pipe `|` delimited 
 ----------------|-------------|
 | Slot Location | The slot location in the vending machine where the product is set. |
 | Product Name  | The display name of the vending machine product.                   |
-| Price         | The purchase price for the product.                                |
+| Price         | The money price for the product.                                |
 | Type          | The product type for this row.                                     |
 
 For example:

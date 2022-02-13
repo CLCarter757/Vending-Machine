@@ -1,14 +1,10 @@
 package com.techelevator;
 
-import java.math.BigDecimal;
 import java.util.*;
 
-public class Purchase {
-
+public class Money {
     private double currentMoneyProvided;
     Log write = new Log();
-    private int endBalance = 0;
-    Map<String, List<Product>> inventoryLevels = new LinkedHashMap<>();
 
     public double getCurrentMoneyProvided() {
         return currentMoneyProvided;
@@ -17,14 +13,17 @@ public class Purchase {
         this.currentMoneyProvided = currentMoneyProvided;
     }
 
-
     public void feedMoney() {
         Scanner userInput = new Scanner(System.in);
-            System.out.println("Please enter the whole dollar amount you would like to deposit: ");
-            System.out.print(">> ");
-            int depositAmount = Integer.parseInt(userInput.nextLine());
+        System.out.println("Please enter the whole dollar amount you would like to deposit: ");
+        System.out.print(">> ");
+        int depositAmount = Integer.parseInt(userInput.nextLine());
+        if (depositAmount > 0) {
             currentMoneyProvided += depositAmount;
             write.writeLog("FEED MONEY: ", depositAmount, currentMoneyProvided);
+            } else {
+                System.out.println("Deposit must be a positive whole number.");
+            }
     }
 
     public void giveChange() {

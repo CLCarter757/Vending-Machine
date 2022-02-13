@@ -1,24 +1,13 @@
 package com.techelevator;
 
-import java.io.File;
-
-import java.sql.SQLOutput;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
-//Where we print to user and receive input from user
 public class UI {
 
     Scanner userInput = new Scanner(System.in);
-    //private Map<String, Inventory> vendingProduct = new HashMap<>();
 
     Inventory inventory = new Inventory();
-    Purchase purchase = new Purchase();
-
-
+    Money money = new Money();
 
     public void mainMenu(){
 
@@ -27,8 +16,6 @@ public class UI {
         String menuChoice = userInput.nextLine();
 
         while(!menuChoice.equals("3")){
-
-//            inventory.createInventory();
 
             if(menuChoice.equals("1")){
                 inventory.displayInventory();
@@ -56,20 +43,18 @@ public class UI {
         String purchaseMenuChoice = userInput.nextLine();
 
         while (!purchaseMenuChoice.equals("3")){
-//            inventory.createInventory();
 
             if(purchaseMenuChoice.equals("1")){
-                purchase.feedMoney();
-                System.out.println("Current money provided: $" + String.format("%.2f",purchase.getCurrentMoneyProvided()));
-
+                money.feedMoney();
+                System.out.println("Current money provided: $" + String.format("%.2f", money.getCurrentMoneyProvided()));
             }
             if(purchaseMenuChoice.equals("2")){
                 inventory.displayInventory();
                 System.out.println("Enter the code of the item: ");
                 System.out.print(">> ");
-                String itemCode = userInput.nextLine();
-                itemCode = itemCode.toUpperCase();
-                inventory.purchase(itemCode, purchase);
+                String slotIdentifier = userInput.nextLine();
+                slotIdentifier = slotIdentifier.toUpperCase();
+                inventory.purchase(slotIdentifier, money);
             }
 
             System.out.print("\n");
@@ -77,8 +62,8 @@ public class UI {
             purchaseMenuChoice = userInput.nextLine();
         }
         if(purchaseMenuChoice.equals("3")){
-            purchase.giveChange();
-            System.out.println("\nCurrent money provided: $" + String.format("%.2f",purchase.getCurrentMoneyProvided()));
+            money.giveChange();
+            System.out.println("\nCurrent money provided: $" + String.format("%.2f", money.getCurrentMoneyProvided()));
         }
     }
 
@@ -94,7 +79,7 @@ public class UI {
         System.out.println("(1) Feed Money");
         System.out.println("(2) Select Product");
         System.out.println("(3) Finish Transaction");
-        System.out.println("\nCurrent money provided: $" + String.format("%.2f",purchase.getCurrentMoneyProvided()));
+        System.out.println("\nCurrent money provided: $" + String.format("%.2f", money.getCurrentMoneyProvided()));
         System.out.print(">> ");
     }
 
