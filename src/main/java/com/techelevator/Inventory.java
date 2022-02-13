@@ -3,11 +3,12 @@ package com.techelevator;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class Inventory {
     Map<String, List<Product>> inventoryLevels = new LinkedHashMap<>();
-    private int quantity = inventoryLevels.values().stream().mapToInt(List::size).sum();
+    Log write = new Log();
 
     public Map<String, List<Product>> createInventory() {
         File file = new File("vendingmachine.csv");
@@ -72,7 +73,7 @@ public class Inventory {
         }
     }
 
-    public void purchase(String slotIdentifier) {
+    public void purchase(String slotIdentifier, Purchase purchase) {
 
         if(!inventoryLevels.containsKey(slotIdentifier)) { //if choice null
             System.out.println("Product choice not an option. Please choose again.");
@@ -82,24 +83,57 @@ public class Inventory {
                 System.out.println("Item out of stock. Sorry :(");
             }
             if(inventoryLevels.get(slotIdentifier).size() > 0) {
-             //   if (purchase.getCurrentMoneyProvided() >= inventoryLevels.get(slotIdentifier).get(1)) { //check given enough money
-                //    purchase.getCurrentMoneyProvided() -= inventoryLevels.get(slotIdentifier).get(1); //update balance
-                    inventoryLevels.get(slotIdentifier).get(2); //update inventory
+                Product tester = inventoryLevels.get(slotIdentifier).get(1);
+                String test = tester.toString().replace(", ", "");
+                String[] split = test.split(": \\$");
+                String name = split[0];
+                double price = Double.parseDouble(split[1]);
 
-                    System.out.println(quantity);
-                    System.out.println(inventoryLevels.get(slotIdentifier).get(quantity));
-                    System.out.println("Test");
-                //}
-               // else {
-              //      System.out.println("Insufficient funds.");
-               // }
+                if (purchase.getCurrentMoneyProvided() >= price) { //check given enough money
+                    double startBalance = purchase.getCurrentMoneyProvided();
+                    double endBalance = startBalance - price;
+                    purchase.setCurrentMoneyProvided(endBalance);// update currentMoneyProvided
+                    Product nameCost = inventoryLevels.get(slotIdentifier).get(1);
+
+                    System.out.println();
+                    System.out.println(returnMessage(slotIdentifier));
+                    System.out.println(nameCost + " $" + purchase.getCurrentMoneyProvided());
+
+                    write.writeLog(name + " " + slotIdentifier, startBalance, endBalance);// Add to log
+                    // Update Sales Report
+
+                    inventoryLevels.get(slotIdentifier).remove(1);// remove item from inventory
+                }
+
+                else {
+                    System.out.println("Insufficient funds.");
+                }
             }
         }
+
+    }
+
+    public String returnMessage(String slotIdentifier) {
+        if(slotIdentifier.startsWith("A")) {
+            Chip chip = new Chip();
+            return chip.getSound();
+        } if(slotIdentifier.startsWith("B")) {
+            Candy candy = new Candy();
+            return candy.getSound();
+        } if(slotIdentifier.startsWith("C")) {
+            Beverage beverage = new Beverage();
+            return beverage.getSound();
+        } if(slotIdentifier.startsWith("D")) {
+            Gum gum = new Gum();
+            return gum.getSound();
+        }
+        return "";
     }
 
 
-    public void removeItem() {
-        inventoryLevels.get("A1").remove(0);
+
+    public void removeItem(String slotIdentifier) {
+        inventoryLevels.get(slotIdentifier).remove(1);
     }
 }
 

@@ -62,7 +62,7 @@ public class UI {
                 inventory.displayInventory();
                 System.out.print("Enter the code of the item: ");
                 String itemCode = userInput.nextLine();
-                inventory.purchase(itemCode);
+                inventory.purchase(itemCode, purchase);
             }
 
             System.out.print("\n");
@@ -71,7 +71,6 @@ public class UI {
         }
         if(purchaseMenuChoice.equals("3")){
             purchase.giveChange();
-            //Need to make getCurrentMoneyProvided to 0
             System.out.println("\nCurrent money provided: $" + purchase.getCurrentMoneyProvided());
         }
     }

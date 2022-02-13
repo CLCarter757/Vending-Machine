@@ -7,6 +7,10 @@ public class Beverage extends Product {
         super(name, price);
     }
 
+    public Beverage() {
+
+    }
+
     @Override
     public String getSound() {
         return "Glug Glug, Yum!";

@@ -8,6 +8,10 @@ public class Candy extends Product {
         super(name, price);
     }
 
+    public Candy() {
+
+    }
+
     @Override
     public String getSound() {
         return "Munch Munch, Yum!";

@@ -18,7 +18,7 @@ public class Log {
         try(FileOutputStream outputStream = new FileOutputStream(("log.txt"), true);
             PrintWriter logWriter = new PrintWriter(outputStream)) {
 
-            logWriter.println(format.format(dateTime) + " " + transaction + " " + startBalance + " " + endBalance);
+            logWriter.println(format.format(dateTime) + " " + transaction + " $" + String.format("%.2f", startBalance) + " $" + String.format("%.2f", endBalance));
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found.");;
