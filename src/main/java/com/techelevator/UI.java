@@ -34,12 +34,15 @@ public class UI {
                 purchaseMenuOptions();
                 purchaseMenu();
             }
-            if(menuChoice.equals("3")){
-                System.exit(0);
+            if(menuChoice.equals("4")){
+                //Sales Report
             }
             System.out.print("\n");
             mainMenuOptions();
             menuChoice = userInput.nextLine();
+        }
+        if(menuChoice.equals("3")){
+            System.exit(0);
         }
     }
 
