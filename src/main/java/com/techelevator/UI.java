@@ -2,6 +2,7 @@ package com.techelevator;
 
 import java.io.File;
 
+import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,6 +45,8 @@ public class UI {
             menuChoice = userInput.nextLine();
         }
         if(menuChoice.equals("3")){
+            System.out.println();
+            System.out.println("Thank you for using Vendo-Matic 800. Goodbye!");
             System.exit(0);
         }
     }
@@ -62,7 +65,8 @@ public class UI {
             }
             if(purchaseMenuChoice.equals("2")){
                 inventory.displayInventory();
-                System.out.print("Enter the code of the item: ");
+                System.out.println("Enter the code of the item: ");
+                System.out.print(">> ");
                 String itemCode = userInput.nextLine();
                 itemCode = itemCode.toUpperCase();
                 inventory.purchase(itemCode, purchase);
@@ -79,15 +83,19 @@ public class UI {
     }
 
     public void mainMenuOptions() {
+        System.out.println();
         System.out.println("(1) Display vending machine items");
         System.out.println("(2) Purchase");
         System.out.println("(3) Exit");
+        System.out.print(">> ");
     }
     public void purchaseMenuOptions(){
+        System.out.println();
         System.out.println("(1) Feed Money");
         System.out.println("(2) Select Product");
         System.out.println("(3) Finish Transaction");
         System.out.println("\nCurrent money provided: $" + String.format("%.2f",purchase.getCurrentMoneyProvided()));
+        System.out.print(">> ");
     }
 
 

@@ -21,6 +21,7 @@ public class Purchase {
     public void feedMoney() {
         Scanner userInput = new Scanner(System.in);
             System.out.println("Please enter the whole dollar amount you would like to deposit: ");
+            System.out.print(">> ");
             int depositAmount = Integer.parseInt(userInput.nextLine());
             currentMoneyProvided += depositAmount;
             write.writeLog("FEED MONEY: ", depositAmount, currentMoneyProvided);
@@ -36,13 +37,14 @@ public class Purchase {
         int nickles = (int) (changeOwed / 5);
         changeOwed -= (nickles * 5);
 
+        System.out.println();
         System.out.println("Change: ");
         if (quarters > 0) {
-            System.out.println("Quarters: " + quarters);
+            System.out.println("Quarters- " + quarters);
         } if (dimes > 0) {
-            System.out.println("Dimes: " + dimes);
+            System.out.println("Dimes- " + dimes);
         } if(nickles > 0) {
-            System.out.println("Nickles: " + nickles);
+            System.out.println("Nickles- " + nickles);
         }
         write.writeLog("GIVE CHANGE: ", startBalance, changeOwed);
 
