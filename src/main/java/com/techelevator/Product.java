@@ -1,15 +1,21 @@
 package com.techelevator;
 
+import java.math.BigDecimal;
+
 public abstract class Product {
     private String name;
-    private double price;
+    private BigDecimal price;
     private int quantity = 5;
 
 
-    public Product(String name, double price) {
+    public Product(String name, BigDecimal price) {
         this.name = name;
         this.price = price;
         }
+
+    public Product() {
+
+    }
 
     public String getName() {
         return name;
@@ -19,11 +25,11 @@ public abstract class Product {
         this.name = name;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -39,6 +45,6 @@ public abstract class Product {
 
     @Override
     public String toString() {
-        return name + ": " + price + ", ";
+        return name + ": $" + price + ", ";
     }
 }

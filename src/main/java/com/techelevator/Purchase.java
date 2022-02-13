@@ -1,16 +1,22 @@
 package com.techelevator;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 public class Purchase {
-    private int currentMoneyProvided;
+
+    private double currentMoneyProvided;
     Log write = new Log();
     private int endBalance = 0;
     Map<String, List<Product>> inventoryLevels = new LinkedHashMap<>();
 
-    public int getCurrentMoneyProvided() {
+    public double getCurrentMoneyProvided() {
         return currentMoneyProvided;
     }
+    public void setCurrentMoneyProvided(double currentMoneyProvided) {
+        this.currentMoneyProvided = currentMoneyProvided;
+    }
+
 
     public void feedMoney() {
         Scanner userInput = new Scanner(System.in);
@@ -21,13 +27,13 @@ public class Purchase {
     }
 
     public void giveChange() {
-        double startBalance = currentMoneyProvided;
-        int changeOwed = currentMoneyProvided * 100;
-        int quarters = changeOwed / 25;
+        double startBalance = Math.round(currentMoneyProvided * 100) / 100;
+        double changeOwed = currentMoneyProvided * 100;
+        int quarters = (int) (changeOwed / 25);
         changeOwed -= (quarters * 25);
-        int dimes = changeOwed / 10;
+        int dimes = (int) (changeOwed / 10);
         changeOwed -= (dimes * 10);
-        int nickles = changeOwed / 5;
+        int nickles = (int) (changeOwed / 5);
         changeOwed -= (nickles * 5);
 
         System.out.println("Change: ");

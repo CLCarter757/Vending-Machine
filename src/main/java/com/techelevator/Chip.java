@@ -1,9 +1,15 @@
 package com.techelevator;
 
+import java.math.BigDecimal;
+
 public class Chip extends Product {
 
-    public Chip(String name, double price){
+    public Chip(String name, BigDecimal price){
         super(name, price);
+    }
+
+    public Chip() {
+
     }
 
     @Override
