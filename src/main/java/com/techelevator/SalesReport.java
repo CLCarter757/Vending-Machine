@@ -10,12 +10,15 @@ import java.util.Map;
 
 public class SalesReport{
 
+    Map<String, Integer> report = new HashMap<>();
+    Map<String, Integer> report2 = new HashMap<>();
+
     Inventory inventory = new Inventory();
     public void salesReport(){
         Map<String, Integer> report = new HashMap<>();
         Map<String, Integer> report2 = new HashMap<>();
         inventory.createInventory();
-        System.out.print(inventory.inventoryLevels.size());
+        //System.out.print(inventory.inventoryLevels.size());
         //String slotIdentifier = entry.getKey();
         for(Map.Entry<String, List<Product>> entry : inventory.inventoryLevels.entrySet()) {
             String slotIdentifier = entry.getKey();
@@ -23,7 +26,7 @@ public class SalesReport{
             String test = tester.toString().replace(", ", "");
             String[] split = test.split(": \\$");
             String name = split[0];
-            System.out.println(name + " | ");
+            System.out.println(name + "|");
         }
     }
 //    public void salesReport() {
