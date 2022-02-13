@@ -10,6 +10,6 @@ public class VendingMachine {
 		//vendingMachine.mainMenu();
 
 		SalesReport test = new SalesReport();
-		test.salesReport();
+		test.makeReport();
 	}
 }
