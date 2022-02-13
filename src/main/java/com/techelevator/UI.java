@@ -3,6 +3,7 @@ package com.techelevator;
 import java.io.File;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -17,15 +18,16 @@ public class UI {
     Purchase purchase = new Purchase();
 
 
+
     public void mainMenu(){
 
-        //Scanner userInput = new Scanner(System.in);
+        inventory.createInventory();
         mainMenuOptions();
         String menuChoice = userInput.nextLine();
 
         while(!menuChoice.equals("3")){
 
-            inventory.createInventory();
+//            inventory.createInventory();
 
             if(menuChoice.equals("1")){
                 inventory.displayInventory();
@@ -51,7 +53,7 @@ public class UI {
         String purchaseMenuChoice = userInput.nextLine();
 
         while (!purchaseMenuChoice.equals("3")){
-            inventory.createInventory();
+//            inventory.createInventory();
 
             if(purchaseMenuChoice.equals("1")){
                 purchase.feedMoney();
@@ -62,6 +64,7 @@ public class UI {
                 inventory.displayInventory();
                 System.out.print("Enter the code of the item: ");
                 String itemCode = userInput.nextLine();
+                itemCode = itemCode.toUpperCase();
                 inventory.purchase(itemCode, purchase);
             }
 
@@ -86,5 +89,6 @@ public class UI {
         System.out.println("(3) Finish Transaction");
         System.out.println("\nCurrent money provided: $" + purchase.getCurrentMoneyProvided());
     }
+
 
 }

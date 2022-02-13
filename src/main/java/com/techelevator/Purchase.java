@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 public class Purchase {
@@ -22,11 +23,12 @@ public class Purchase {
             System.out.println("Please enter the whole dollar amount you would like to deposit: ");
             int depositAmount = Integer.parseInt(userInput.nextLine());
             currentMoneyProvided += depositAmount;
+            BigDecimal bd = new BigDecimal(currentMoneyProvided);
             write.writeLog("FEED MONEY: ", depositAmount, currentMoneyProvided);
     }
 
     public void giveChange() {
-        double startBalance = currentMoneyProvided;
+        double startBalance = Math.round(currentMoneyProvided * 100) / 100;
         double changeOwed = currentMoneyProvided * 100;
         int quarters = (int) (changeOwed / 25);
         changeOwed -= (quarters * 25);

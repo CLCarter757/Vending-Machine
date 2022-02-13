@@ -1,9 +1,11 @@
 package com.techelevator;
 
+import java.math.BigDecimal;
+
 public class Beverage extends Product {
 
     //constructor
-    public Beverage(String name, double price){
+    public Beverage(String name, BigDecimal price){
         super(name, price);
     }
 
