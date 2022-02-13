@@ -51,23 +51,7 @@ public class Purchase {
         currentMoneyProvided = 0;
     }
 
-//    public void purchase(String slotIdentifier) {
-//        if(!inventoryLevels.containsKey(slotIdentifier)) { //if choice null
-//            System.out.println("Product choice not an option. Please choose again.");
-//        } if(inventoryLevels.containsKey(slotIdentifier)) {
-//            if(inventoryLevels.get(slotIdentifier).size() == 0) { //check if in stock
-//                System.out.println("Item out of stock. Sorry :(");
-//            } if(inventoryLevels.get(slotIdentifier).size() > 0) {
-////                if (currentMoneyProvided >= inventory.get(slotIdentifier).get(1)) { //check given enough money
-////                    currentMoneyProvided -= inventory.get(slotIdentifier).get(1); //update balance
-////                    inventory.get(slotIdentifier).get(2); //update inventory
-//                System.out.println("Test");
-//                } else {
-//                    System.out.println("Insufficient funds.");
-//                }
-//            }
-//        }
-    }
+}
 
 
 
