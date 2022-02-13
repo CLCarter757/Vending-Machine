@@ -97,7 +97,7 @@ public class Inventory {
 
                     System.out.println();
                     System.out.println(returnMessage(slotIdentifier));
-                    System.out.println(nameCost + " $" + purchase.getCurrentMoneyProvided());
+                    System.out.println(nameCost + " $" + String.format("%.2f",purchase.getCurrentMoneyProvided()));
 
                     write.writeLog(name + " " + slotIdentifier, startBalance, endBalance);// Add to log
                     // Update Sales Report

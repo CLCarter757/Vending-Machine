@@ -57,7 +57,7 @@ public class UI {
 
             if(purchaseMenuChoice.equals("1")){
                 purchase.feedMoney();
-                System.out.println("Current money provided: $" + purchase.getCurrentMoneyProvided());
+                System.out.println("Current money provided: $" + String.format("%.2f",purchase.getCurrentMoneyProvided()));
 
             }
             if(purchaseMenuChoice.equals("2")){
@@ -74,7 +74,7 @@ public class UI {
         }
         if(purchaseMenuChoice.equals("3")){
             purchase.giveChange();
-            System.out.println("\nCurrent money provided: $" + purchase.getCurrentMoneyProvided());
+            System.out.println("\nCurrent money provided: $" + String.format("%.2f",purchase.getCurrentMoneyProvided()));
         }
     }
 
@@ -87,7 +87,7 @@ public class UI {
         System.out.println("(1) Feed Money");
         System.out.println("(2) Select Product");
         System.out.println("(3) Finish Transaction");
-        System.out.println("\nCurrent money provided: $" + purchase.getCurrentMoneyProvided());
+        System.out.println("\nCurrent money provided: $" + String.format("%.2f",purchase.getCurrentMoneyProvided()));
     }
 
 

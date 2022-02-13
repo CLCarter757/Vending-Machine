@@ -23,7 +23,6 @@ public class Purchase {
             System.out.println("Please enter the whole dollar amount you would like to deposit: ");
             int depositAmount = Integer.parseInt(userInput.nextLine());
             currentMoneyProvided += depositAmount;
-            BigDecimal bd = new BigDecimal(currentMoneyProvided);
             write.writeLog("FEED MONEY: ", depositAmount, currentMoneyProvided);
     }
 
