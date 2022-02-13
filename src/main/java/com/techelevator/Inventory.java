@@ -2,9 +2,7 @@ package com.techelevator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class Inventory {
@@ -13,7 +11,6 @@ public class Inventory {
 
     public Map<String, List<Product>> createInventory() {
         File file = new File("vendingmachine.csv");
-
 
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
@@ -73,13 +70,14 @@ public class Inventory {
         }
     }
 
-    public void purchase(String slotIdentifier, Purchase purchase) {
+    public void purchase(String slotIdentifier, Money money) {
 
-        if(!inventoryLevels.containsKey(slotIdentifier)) { //if choice null
+        if(!inventoryLevels.containsKey(slotIdentifier)) {
             System.out.println("Product choice not an option. Please choose again.");
         }
         if(inventoryLevels.containsKey(slotIdentifier)) {
-            if(inventoryLevels.get(slotIdentifier).size() == 0) { //check if in stock
+
+            if(inventoryLevels.get(slotIdentifier).size() == 0) {
                 System.out.println("Item out of stock. Sorry :(");
             }
             if(inventoryLevels.get(slotIdentifier).size() > 0) {
@@ -89,48 +87,47 @@ public class Inventory {
                 String name = split[0];
                 double price = Double.parseDouble(split[1]);
 
-                if (purchase.getCurrentMoneyProvided() >= price) { //check given enough money
-                    double startBalance = purchase.getCurrentMoneyProvided();
+                if (money.getCurrentMoneyProvided() >= price) {
+                    double startBalance = money.getCurrentMoneyProvided();
                     double endBalance = startBalance - price;
-                    purchase.setCurrentMoneyProvided(endBalance);// update currentMoneyProvided
+                    money.setCurrentMoneyProvided(endBalance);
                     Product nameCost = inventoryLevels.get(slotIdentifier).get(1);
 
                     System.out.println();
                     System.out.println(returnMessage(slotIdentifier));
-                    System.out.println(nameCost + " $" + String.format("%.2f",purchase.getCurrentMoneyProvided()));
+                    System.out.println(nameCost + " $" + String.format("%.2f", money.getCurrentMoneyProvided()));
 
-                    write.writeLog(name + " " + slotIdentifier, startBalance, endBalance);// Add to log
+                    write.writeLog(name + " " + slotIdentifier, startBalance, endBalance);
                     // Update Sales Report
 
-                    inventoryLevels.get(slotIdentifier).remove(0);// remove item from inventory
+                    removeItem(slotIdentifier);
                 }
-
                 else {
                     System.out.println("Insufficient funds.");
                 }
             }
         }
-
     }
 
     public String returnMessage(String slotIdentifier) {
         if(slotIdentifier.startsWith("A")) {
             Chip chip = new Chip();
             return chip.getSound();
-        } if(slotIdentifier.startsWith("B")) {
+        }
+        if(slotIdentifier.startsWith("B")) {
             Candy candy = new Candy();
             return candy.getSound();
-        } if(slotIdentifier.startsWith("C")) {
+        }
+        if(slotIdentifier.startsWith("C")) {
             Beverage beverage = new Beverage();
             return beverage.getSound();
-        } if(slotIdentifier.startsWith("D")) {
+        }
+        if(slotIdentifier.startsWith("D")) {
             Gum gum = new Gum();
             return gum.getSound();
         }
         return "";
     }
-
-
 
     public void removeItem(String slotIdentifier) {
         inventoryLevels.get(slotIdentifier).remove(1);
@@ -138,5 +135,14 @@ public class Inventory {
 }
 
 
+/*
+SalesReport.txt
+Map<String, Int> salesReport = new LinkedHasMap<>(); (product, sales)
 
+Map<String, Int> newSales = new LinkedHasMap<>(); (product, 0)
+
+for(Map.Entry<> entry < salesReport.entrySet())
+    int newTotal = salesReport.get(entry) + newSales.g
+
+ */
 

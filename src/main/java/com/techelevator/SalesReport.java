@@ -15,7 +15,7 @@ public class SalesReport{
         Map<String, Integer> report = new HashMap<>();
         Map<String, Integer> report2 = new HashMap<>();
         inventory.createInventory();
-        System.out.print(inventory.inventoryLevels.size());
+//        System.out.print(inventory.inventoryLevels.size());
         //String slotIdentifier = entry.getKey();
         for(Map.Entry<String, List<Product>> entry : inventory.inventoryLevels.entrySet()) {
             String slotIdentifier = entry.getKey();

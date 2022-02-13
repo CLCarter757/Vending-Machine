@@ -1,7 +1,7 @@
 package com.techelevator;
 
 // Main class where we run the program through
-public class Application {
+public class VendingMachine {
 
 
 	public static void main(String[] args) {
