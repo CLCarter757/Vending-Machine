@@ -141,7 +141,7 @@ Map<String, Int> salesReport = new LinkedHasMap<>(); (product, sales)
 
 Map<String, Int> newSales = new LinkedHasMap<>(); (product, 0)
 
-for(Map.Entry<> entry < salesReport.entrySet())
+for(Map.Entry<String, Int> entry : salesReport.entrySet())
     int newTotal = salesReport.get(entry) + newSales.g
 
  */

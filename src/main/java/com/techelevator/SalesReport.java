@@ -1,31 +1,61 @@
 package com.techelevator;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class SalesReport{
 
+    LocalDateTime dateTime = LocalDateTime.now();
+    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss a");
+
+    Map<String, Integer> report = new HashMap<>();
+    Map<String, Integer> report2 = new HashMap<>();
+
     Inventory inventory = new Inventory();
-    public void salesReport(){
+
+    public void makeReport(){
         Map<String, Integer> report = new HashMap<>();
         Map<String, Integer> report2 = new HashMap<>();
+
         inventory.createInventory();
-//        System.out.print(inventory.inventoryLevels.size());
+        //System.out.print(inventory.inventoryLevels.size());
         //String slotIdentifier = entry.getKey();
+
         for(Map.Entry<String, List<Product>> entry : inventory.inventoryLevels.entrySet()) {
             String slotIdentifier = entry.getKey();
             Product tester = inventory.inventoryLevels.get(slotIdentifier).get(1);
             String test = tester.toString().replace(", ", "");
             String[] split = test.split(": \\$");
             String name = split[0];
-            System.out.println(name + " | ");
+            System.out.println(name + "|");
         }
     }
+
+    public void salesReportTest(){
+        File saleFile = new File(dateTime + " SalesReport.txt");
+        try(Scanner scanFile = new Scanner(saleFile)){
+            makeReport();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
+    //
 //    public void salesReport() {
 //        Map<String, Integer> report = new HashMap<>();
 //

@@ -9,7 +9,7 @@ public class VendingMachine {
 		UI vendingMachine = new UI();
 		vendingMachine.mainMenu();
 
-//		SalesReport test = new SalesReport();
-//		test.salesReport();
+		SalesReport test = new SalesReport();
+		test.makeReport();
 	}
 }
