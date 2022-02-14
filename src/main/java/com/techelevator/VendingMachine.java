@@ -6,10 +6,10 @@ public class VendingMachine {
 
 	public static void main(String[] args) {
 
-		//UI vendingMachine = new UI();
-		//vendingMachine.mainMenu();
+		UI vendingMachine = new UI();
+		vendingMachine.mainMenu();
 
-		SalesReport test = new SalesReport();
-		test.salesReport();
+//		SalesReport test = new SalesReport();
+//		test.salesReport();
 	}
 }
