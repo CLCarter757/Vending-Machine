@@ -4,9 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Log {
@@ -24,7 +22,7 @@ public class Log {
         } catch (FileNotFoundException e) {
             System.out.println("File not found.");;
         } catch (IOException e) {
-            System.out.println("Womp Womp!");;
+            System.out.println("Unable to access file.");;
         }
     }
 

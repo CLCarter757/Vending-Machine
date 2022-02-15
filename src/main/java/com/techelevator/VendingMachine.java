@@ -1,6 +1,5 @@
 package com.techelevator;
 
-// Main class where we run the program through
 public class VendingMachine {
 
 
@@ -8,8 +7,5 @@ public class VendingMachine {
 
 		UI vendingMachine = new UI();
 		vendingMachine.mainMenu();
-
-		SalesReport test = new SalesReport();
-		test.makeReport();
 	}
 }

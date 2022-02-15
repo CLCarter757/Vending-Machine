@@ -98,7 +98,6 @@ public class Inventory {
                     System.out.println(nameCost + " $" + String.format("%.2f", money.getCurrentMoneyProvided()));
 
                     write.writeLog(name + " " + slotIdentifier, startBalance, endBalance);
-                    // Update Sales Report
 
                     removeItem(slotIdentifier);
                 }
@@ -134,15 +133,4 @@ public class Inventory {
     }
 }
 
-
-/*
-SalesReport.txt
-Map<String, Int> salesReport = new LinkedHasMap<>(); (product, sales)
-
-Map<String, Int> newSales = new LinkedHasMap<>(); (product, 0)
-
-for(Map.Entry<String, Int> entry : salesReport.entrySet())
-    int newTotal = salesReport.get(entry) + newSales.g
-
- */
 

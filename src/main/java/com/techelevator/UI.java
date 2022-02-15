@@ -24,18 +24,13 @@ public class UI {
                 purchaseMenuOptions();
                 purchaseMenu();
             }
-            if(menuChoice.equals("4")){
-                //Sales Report
-            }
             System.out.print("\n");
             mainMenuOptions();
             menuChoice = userInput.nextLine();
         }
-        if(menuChoice.equals("3")){
-            System.out.println();
-            System.out.println("Thank you for using Vendo-Matic 800. Goodbye!");
-            System.exit(0);
-        }
+        System.out.println();
+        System.out.println("Thank you for using Vendo-Matic 800. Goodbye!");
+        System.exit(0);
     }
 
     public void purchaseMenu(){
@@ -61,10 +56,8 @@ public class UI {
             purchaseMenuOptions();
             purchaseMenuChoice = userInput.nextLine();
         }
-        if(purchaseMenuChoice.equals("3")){
-            money.giveChange();
-            System.out.println("\nCurrent money provided: $" + String.format("%.2f", money.getCurrentMoneyProvided()));
-        }
+        money.giveChange();
+        System.out.println("\nCurrent money provided: $" + String.format("%.2f", money.getCurrentMoneyProvided()));
     }
 
     public void mainMenuOptions() {
